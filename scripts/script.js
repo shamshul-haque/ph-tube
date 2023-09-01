@@ -51,12 +51,15 @@ const displayCategoryItems = (items) => {
     itemsContainer.appendChild(categoryItem);
   } else {
     items.forEach((item) => {
-      itemsContainer.classList = `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 border border-red-500 pb-5`;
+      itemsContainer.classList = `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 border border-red-500 mb-5`;
       const categoryItem = document.createElement("div");
       categoryItem.classList = `space-y-3`;
       categoryItem.innerHTML = `
-            <img src="${item.thumbnail}" alt="${item.title}" 
-            class="h-40 w-60 rounded-md"/>
+            <div>
+                <img src="${item.thumbnail}" alt="${item.title}" 
+                class="h-40 w-full rounded-md"/>
+                <p class="">${item?.others?.posted_date}</p>
+            </div>
             <div class="flex">
                 <img src="${item?.authors[0]?.profile_picture}" 
                 alt="${item?.authors[0]?.profile_name}" 
@@ -73,7 +76,7 @@ const displayCategoryItems = (items) => {
                     </p>
                     <p class="text-sm text-gray-400-400 font-normal">${
                       item?.others?.views
-                    }</p>
+                    } views</p>
                 </div>
             </div>
         `;
