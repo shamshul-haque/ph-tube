@@ -43,7 +43,7 @@ const displayCategoryItems = (items) => {
       "gap-5"
     );
     const categoryItem = document.createElement("div");
-    categoryItem.classList = `w-full pt-10 space-y-5 pb-10`;
+    categoryItem.classList = `w-full py-10 space-y-5`;
     categoryItem.innerHTML = `
         <img src="../images/Icon.png" alt="icon" class="mx-auto"/>
         <p class="text-center text-2xl text-black font-bold">Oops!! Sorry, There is no content here!</p>
@@ -51,14 +51,16 @@ const displayCategoryItems = (items) => {
     itemsContainer.appendChild(categoryItem);
   } else {
     items.forEach((item) => {
-      itemsContainer.classList = `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 border border-red-500 mb-5`;
+      itemsContainer.classList = `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5`;
       const categoryItem = document.createElement("div");
-      categoryItem.classList = `space-y-3`;
+      categoryItem.classList = `space-y-3 pb-5`;
       categoryItem.innerHTML = `
-            <div>
+            <div class="relative">
                 <img src="${item.thumbnail}" alt="${item.title}" 
                 class="h-40 w-full rounded-md"/>
-                <p class="">${item?.others?.posted_date}</p>
+                <p class="absolute right-3 bottom-1 text-white text-sm font-normal bg-black p-1 rounded-md">${
+                  item?.others?.posted_date
+                }</p>
             </div>
             <div class="flex">
                 <img src="${item?.authors[0]?.profile_picture}" 
@@ -66,7 +68,7 @@ const displayCategoryItems = (items) => {
                 class="w-10 h-10 rounded-full"/>
                 <div class="ml-2">
                     <p class="text-base text-black font-bold">${item.title}</p>
-                    <p class="text-sm text-gray-400-400 font-normal flex items-center gap-2">
+                    <p class="text-sm text-gray-400 font-normal flex items-center gap-2">
                         ${item?.authors[0]?.profile_name}
                         <span>${
                           item?.authors[0]?.verified === true
@@ -74,7 +76,7 @@ const displayCategoryItems = (items) => {
                             : ``
                         }</span> 
                     </p>
-                    <p class="text-sm text-gray-400-400 font-normal">${
+                    <p class="text-sm text-gray-400 font-normal">${
                       item?.others?.views
                     } views</p>
                 </div>
