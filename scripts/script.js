@@ -51,16 +51,24 @@ const displayCategoryItems = (items) => {
     itemsContainer.appendChild(categoryItem);
   } else {
     items.forEach((item) => {
-      itemsContainer.classList = `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5`;
+      const time = item?.others?.posted_date;
+      const hr = Math.floor(time / 3600);
+      const min = Math.floor((time % 3600) / 60);
+
+      itemsContainer.classList = `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 pb-5`;
       const categoryItem = document.createElement("div");
-      categoryItem.classList = `space-y-3 pb-5`;
+      categoryItem.classList = `space-y-3`;
       categoryItem.innerHTML = `
             <div class="relative">
                 <img src="${item.thumbnail}" alt="${item.title}" 
                 class="h-40 w-full rounded-md"/>
-                <p class="absolute right-3 bottom-1 text-white text-sm font-normal bg-black p-1 rounded-md">${
-                  item?.others?.posted_date
-                }</p>
+                <div>
+                ${
+                  time === ""
+                    ? ``
+                    : `<p class="absolute right-3 bottom-1 text-white text-sm bg-black p-1 rounded-md">${hr}hrs ${min} min ago</p>`
+                }
+                </div>
             </div>
             <div class="flex">
                 <img src="${item?.authors[0]?.profile_picture}" 
