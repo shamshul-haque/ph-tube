@@ -20,3 +20,18 @@ const displayCategories = (categories) => {
     categoryContainer.appendChild(categoryItem);
   });
 };
+
+// loading the items of every single category
+const loadSingleCategory = async (id) => {
+  const res = await fetch(
+    `https://openapi.programming-hero.com/api/videos/category/${id}`
+  );
+  const data = await res.json();
+  const items = data.data;
+  displayCategoryItems(items);
+};
+
+// showing the loaded items of every single category
+const displayCategoryItems = (items) => {
+  console.log(items);
+};
