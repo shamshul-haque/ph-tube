@@ -17,16 +17,41 @@
 
     <!-- custom styles -->
     <style>
-        .font-inter{
-            font-family: 'Inter', sans-serif;
-        }
+      .font-inter {
+        font-family: "Inter", sans-serif;
+      }
     </style>
   </head>
-  <body>
-    <h1 class="text-3xl text-center font-inter">PH Tube</h1>
-    <p class="text-xs text-center font-inter">project setup</p>
+  <body class="max-w-screen-xl mx-auto px-5 md:px-10 lg:px-20 font-inter">
+    <header>
+      <!-- navbar section -->
+      <section class="py-5">
+        <nav
+          class="flex flex-col md:flex-row items-center justify-between gap-5"
+        >
+          <div>
+            <img src="./images/logo.png" alt="logo" class="w-32 object-fill" />
+          </div>
+          <button
+            class="bg-neutral-300 px-4 py-2 rounded-md text-base font-medium text-black"
+          >
+            Sort by view
+          </button>
+          <button
+            class="bg-red-400 px-4 py-2 rounded-md text-base font-medium text-white"
+            onclick="location.href = 'blog.html'"
+          >
+            Blog
+          </button>
+        </nav>
+      </section>
 
-    <!-- script files -->
+      <hr />
+
+      <section></section>
+    </header>
+
+    <!-- script file -->
     <script src="./scripts/script.js"></script>
   </body>
 </html>
