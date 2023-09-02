@@ -1,11 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog</title>
-</head>
-<body>
-    <h1>test</h1>
-</body>
+    <!-- daisy ui cdn -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- inter google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- custom styles -->
+    <style>
+      .font-inter {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="max-w-screen-xl mx-auto px-5 md:px-10 lg:px-20 font-inter">
+    <header>
+      <section class="py-10">
+        <h1 class="text-center text-2xl md:text-4xl font-bold">
+          Answerers Of Your Blog Questions!
+        </h1>
+      </section>
+    </header>
+
+    <main>
+      <section class="space-y-5">
+        <div class="collapse collapse-arrow bg-base-200">
+          <input type="radio" name="my-accordion-2" checked="checked" />
+          <div class="collapse-title text-xl font-medium">
+            <p>
+              Discuss the scope of <strong>var,</strong>
+              <strong>let</strong> and <strong>const</strong>
+            </p>
+          </div>
+          <div class="collapse-content">
+            <ul>
+              <li>
+                <strong>var: </strong>It is a functional scoped. It can be
+                updated and re-declared.
+              </li>
+              <li>
+                <strong>let: </strong>It is a block scoped. It can be updated
+                but can not be re-declared.
+              </li>
+              <li>
+                <strong>const: </strong>It is also a block scoped but it can not
+                be updated and re-declared.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="collapse collapse-arrow bg-base-200">
+          <input type="radio" name="my-accordion-2" />
+          <div class="collapse-title text-xl font-medium">
+            <p>
+              Tell us the use cases of <strong>null</strong> and
+              <strong>undefined</strong>
+            </p>
+          </div>
+          <div class="collapse-content">
+            <ul>
+              <li>
+                <strong>null: </strong>
+                It is a value that represents the intentional absence of a
+                value. It is assigned explicitly. It's type is object.
+              </li>
+              <li>
+                <strong>undefined: </strong>It occurs when a variable has been
+                declared but the value is not assigned to the variable. It's
+                type is undefined.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="collapse collapse-arrow bg-base-200">
+          <input type="radio" name="my-accordion-2" />
+          <div class="collapse-title text-xl font-medium">
+            <p>What do you mean by <strong>REST API?</strong></p>
+          </div>
+          <div class="collapse-content">
+            <p>
+              A complete form of REST API is Representational State Transfer
+              Application Programming Interface which is an architectural
+              approach for creating web services using standard HTTP methods and
+              resource-based URLs. It's widely used in web and mobile app
+              development for data communication.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+  </body>
 </html>

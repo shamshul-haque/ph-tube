@@ -7,6 +7,7 @@ const loadCategories = async () => {
   const categories = data.data;
   displayCategories(categories);
 };
+loadCategories();
 
 // showing the loaded categories
 const displayCategories = (categories) => {
@@ -14,7 +15,7 @@ const displayCategories = (categories) => {
   categories.forEach((category) => {
     const categoryName = document.createElement("div");
     categoryName.innerHTML = `
-        <button onclick="loadSingleCategory('${category.category_id}')" class="bg-neutral-300 px-4 py-2 rounded-md text-base font-medium text-gray-600">${category.category}</button>
+        <button onclick="loadSingleCategory('${category.category_id}')" class="bg-neutral-300 focus:bg-red-500 px-4 py-2 rounded-md text-base font-medium text-gray-600 focus:text-white">${category.category}</button>
     `;
     categoryContainer.appendChild(categoryName);
   });
@@ -62,13 +63,13 @@ const displayCategoryItems = (items) => {
             <div class="relative">
                 <img src="${item.thumbnail}" alt="${item.title}" 
                 class="h-40 w-full rounded-md"/>
-                <div>
+                <p>
                 ${
                   time === ""
                     ? ``
-                    : `<p class="absolute right-3 bottom-1 text-white text-sm bg-black p-1 rounded-md">${hr}hrs ${min} min ago</p>`
+                    : `<span class="absolute right-3 bottom-1 text-white text-sm bg-black p-1 rounded-md">${hr}hrs ${min} min ago</span>`
                 }
-                </div>
+                </p>
             </div>
             <div class="flex">
                 <img src="${item?.authors[0]?.profile_picture}" 
@@ -94,4 +95,4 @@ const displayCategoryItems = (items) => {
     });
   }
 };
-loadCategories();
+loadSingleCategory(1000);
