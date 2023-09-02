@@ -29,6 +29,7 @@ const loadSingleCategory = async (id) => {
   const data = await res.json();
   const items = data.data;
   displayCategoryItems(items);
+  sortItems(items);
 };
 
 // showing the loaded items of every single category
@@ -96,3 +97,10 @@ const displayCategoryItems = (items) => {
   }
 };
 loadSingleCategory(1000);
+
+const sortItems = (items) => {
+  const sorted = items.sort(
+    (a, b) => parseFloat(b?.others?.views) - parseFloat(a?.others?.views)
+  );
+  displayCategoryItems(sorted);
+};
