@@ -22,14 +22,14 @@ const displayCategories = (categories) => {
 };
 
 // loading the items of every single category
+let globalData = null;
 const loadSingleCategory = async (id) => {
   const res = await fetch(
     `https://openapi.programming-hero.com/api/videos/category/${id}`
   );
   const data = await res.json();
-  const items = data.data;
-  displayCategoryItems(items);
-  sortItems(items);
+  globalData = data.data;
+  displayCategoryItems(globalData);
 };
 
 // showing the loaded items of every single category
@@ -98,9 +98,10 @@ const displayCategoryItems = (items) => {
 };
 loadSingleCategory(1000);
 
-const sortItems = (items) => {
-  const sorted = items.sort(
+// sorting the loaded items of every single category when sort by view will be clicked
+document.getElementById("sort-items").addEventListener("click", function () {
+  const sorted = globalData.sort(
     (a, b) => parseFloat(b?.others?.views) - parseFloat(a?.others?.views)
   );
   displayCategoryItems(sorted);
-};
+});

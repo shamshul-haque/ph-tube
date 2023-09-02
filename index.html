@@ -30,8 +30,8 @@
             <img src="./images/logo.png" alt="logo" class="w-32 object-fill" />
           </div>
           <button
-            class="bg-neutral-300 px-4 py-2 rounded-md text-base font-medium text-black"
-            onclick="sortItems()"
+            id="sort-items"
+            class="bg-neutral-300 focus:bg-red-500 px-4 py-2 rounded-md text-base font-medium text-black"
           >
             Sort by view
           </button>
@@ -48,7 +48,10 @@
 
     <main>
       <!-- category section -->
-      <section id="category-container" class="py-5 flex flex-col md:flex-row items-center justify-center gap-5">
+      <section
+        id="category-container"
+        class="py-5 flex flex-col md:flex-row items-center justify-center gap-5"
+      >
         <!-- category titles are added by dynamically -->
       </section>
 
